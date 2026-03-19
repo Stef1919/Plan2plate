@@ -13,7 +13,7 @@ import { SavedPlans } from './pages/SavedPlans';
 export function App() {
   return (
     <MealPlanProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="/Plan2plate">
         <div style={{ display: 'flex', minHeight: '100vh', backgroundColor: '#faf8f5', color: '#1f2937' }}>
           <Sidebar />
           <main className="main-content" style={{ flex: 1, marginLeft: 260, padding: '2.5rem', overflowY: 'auto', height: '100vh' }}>
