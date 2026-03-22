@@ -25,7 +25,7 @@ The tested product will be an interactive prototype, focusing the core features.
 - Find meals that are currently discounted.
   
 ## USER TASK EFFICENCY EFFICASY SATISFACTION
-##|| 1 || 1 || 41s || True || Neutral 
+## || 1 || 1 || 41s || True || Neutral 
 ##|| 1 || 2 || 26s || True || Very Good
 ##|| 1 || 3 || 48s || True || Good
 ##|| 1 || 4 || 50s || True || Bad
