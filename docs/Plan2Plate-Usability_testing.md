@@ -11,10 +11,10 @@ persona. Participants will be asked to complete realistic tasks while using the 
 method.
 ## RESEARCH DESIGN:
 ## Section Duration
-Introduction 3-5min
-nterview 5min
-Tasks 15-20min
-Follow-up questions 5-10min
+## Introduction 3-5min
+## Interview 5min
+## Tasks 15-20min
+## Follow-up questions 5-10min
 
 The tested product will be an interactive prototype, focusing the core features.
 ## TASKS:
