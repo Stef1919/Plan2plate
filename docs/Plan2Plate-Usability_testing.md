@@ -26,21 +26,21 @@ The tested product will be an interactive prototype, focusing the core features.
   
 ## USER TASK EFFICENCY EFFICASY SATISFACTION
 ## || 1 || 1 || 41s || True || Neutral 
-##|| 1 || 2 || 26s || True || Very Good
-##|| 1 || 3 || 48s || True || Good
-##|| 1 || 4 || 50s || True || Bad
-##|| 1 || 5 || 14s || True || Very Bad
-##|| 2 || 1 || 68s || True || Neutral
-##|| 2 || 2 || 20s || True || Very Good
-##|| 2 || 3 || 33s || True || Good
-##|| 2 || 4 || 26s || True || Neutral
-##|| 2 || 5 || 22s || True || Neutral
-##|| 3 || 1 || 22s || True || Good
-##|| 3 || 2 || 10s || True || Very Good
-##|| 3 || 3 || 10s || True || Very Good
-##|| 3 || 4 || 15s || True || Good
-##|| 3 || 5 || 10s || True || Very Good
-
+## || 1 || 2 || 26s || True || Very Good
+## || 1 || 3 || 48s || True || Good
+## || 1 || 4 || 50s || True || Bad
+## || 1 || 5 || 14s || True || Very Bad
+## || 2 || 1 || 68s || True || Neutral
+## || 2 || 2 || 20s || True || Very Good
+## || 2 || 3 || 33s || True || Good
+## || 2 || 4 || 26s || True || Neutral
+## || 2 || 5 || 22s || True || Neutral
+## || 3 || 1 || 22s || True || Good
+## || 3 || 2 || 10s || True || Very Good
+## || 3 || 3 || 10s || True || Very Good
+## || 3 || 4 || 15s || True || Good
+## || 3 || 5 || 10s || True || Very Good
+ 
 ## SUMMARY:
 TASK 1: Find a meal you would cook for today’s dinner.
 This task tested whether users can quickly choose a meal without a problem or too much
