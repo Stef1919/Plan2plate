@@ -18,12 +18,10 @@ export function MealCard({
 
   if (!meal) return null;
 
-  // Check if meal has discounted ingredients
   const hasDiscount = meal.ingredients.some((ing) =>
   discounts.some((d) => d.ingredientName === ing.name)
   );
 
-  // Adjust calories if active lifestyle is on (mock 20% increase)
   const displayCalories = isActiveLifestyle ? Math.round(meal.calories * 1.2) : meal.calories;
   const displayProtein = isActiveLifestyle ? Math.round(meal.protein * 1.2) : meal.protein;
 
@@ -37,7 +35,7 @@ export function MealCard({
         borderRadius: '1rem',
         padding: '1rem',
         boxShadow: '0 1px 2px rgb(0 0 0 / 0.05)',
-        border: '1px solid #f3f4f6',
+        border: '1px solid #e5e5e5',
         position: 'relative',
         display: 'flex',
         flexDirection: 'column',
@@ -47,7 +45,7 @@ export function MealCard({
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.75rem' }}>
         <div style={{
           fontSize: '2.25rem',
-          backgroundColor: '#faf8f5',
+          backgroundColor: '#f5f5f5',
           width: 64,
           height: 64,
           borderRadius: '1rem',
@@ -66,8 +64,8 @@ export function MealCard({
             onMouseLeave={() => setSwapHovered(false)}
             style={{
               padding: '0.5rem',
-              color: swapHovered ? '#e8723a' : '#9ca3af',
-              backgroundColor: swapHovered ? '#fff7ed' : 'transparent',
+              color: swapHovered ? '#e4002b' : '#9ca3af',
+              backgroundColor: swapHovered ? '#fef2f2' : 'transparent',
               borderRadius: '0.5rem',
               border: 'none',
               cursor: 'pointer',
@@ -87,7 +85,7 @@ export function MealCard({
             style={{
               padding: '0.5rem',
               color: 'white',
-              backgroundColor: addHovered ? '#3a5233' : '#4a6741',
+              backgroundColor: addHovered ? '#c50025' : '#e4002b',
               borderRadius: '0.5rem',
               border: 'none',
               cursor: 'pointer',
@@ -102,7 +100,7 @@ export function MealCard({
       </div>
 
       <div style={{ flex: 1 }}>
-        <h3 style={{ fontWeight: 700, color: '#1f2937', lineHeight: 1.25, marginBottom: '0.25rem', fontSize: '1.125rem' }}>{meal.name}</h3>
+        <h3 style={{ fontWeight: 700, color: '#1a1a1a', lineHeight: 1.25, marginBottom: '0.25rem', fontSize: '1.125rem' }}>{meal.name}</h3>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontSize: '0.75rem', color: '#6b7280', marginBottom: '0.5rem' }}>
           <span style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
             <ClockIcon style={{ width: 12, height: 12 }} />
@@ -120,8 +118,8 @@ export function MealCard({
           gap: '0.25rem',
           fontSize: '0.75rem',
           fontWeight: 500,
-          color: '#4a6741',
-          backgroundColor: 'rgba(74, 103, 65, 0.1)',
+          color: '#e4002b',
+          backgroundColor: '#fef2f2',
           padding: '0.25rem 0.5rem',
           borderRadius: '0.375rem',
           marginBottom: '0.5rem'

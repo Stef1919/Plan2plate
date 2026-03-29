@@ -1,6 +1,5 @@
 
 import { NavLink } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import {
   LayoutDashboardIcon,
   CalendarDaysIcon,
@@ -27,38 +26,34 @@ const navItems = [
 export function Sidebar() {
   return (
     <aside
-      className="sidebar-nav"
       style={{
         position: 'fixed',
         left: 0,
         top: 0,
         height: '100vh',
         width: 260,
-        backgroundColor: '#2d3a29',
-        color: '#faf8f5',
+        backgroundColor: '#ffffff',
+        color: '#1a1a1a',
         display: 'flex',
         flexDirection: 'column',
         zIndex: 50,
-        boxShadow: '0 20px 25px -5px rgb(0 0 0 / 0.1)'
+        borderRight: '1px solid #e5e5e5'
       }}>
       
       <div style={{ padding: '2rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-        <div style={{ backgroundColor: '#e8723a', padding: '0.5rem', borderRadius: '0.75rem' }}>
+        <div style={{ backgroundColor: '#e4002b', padding: '0.5rem', borderRadius: '0.75rem' }}>
           <UtensilsIcon style={{ width: 24, height: 24, color: 'white' }} />
         </div>
-        <h1 style={{ fontSize: '1.5rem', fontWeight: 700, letterSpacing: '-0.025em', margin: 0 }}>plan2plate</h1>
+        <h1 style={{ fontSize: '1.5rem', fontWeight: 700, letterSpacing: '-0.025em', margin: 0, color: '#1a1a1a' }}>plan2plate</h1>
       </div>
 
-      <nav style={{ flex: 1, padding: '0 1rem', marginTop: '1rem' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+      <nav style={{ flex: 1, padding: '0 1rem', marginTop: '0.5rem' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
           {navItems.map((item) =>
           <NavLink
             key={item.path}
             to={item.path}
-            style={{ textDecoration: 'none', color: 'inherit' }}
-            className={({ isActive }) =>
-            isActive ? 'nav-item-active' : 'nav-item'
-            }>
+            style={{ textDecoration: 'none', color: 'inherit' }}>
             
               {({ isActive }) =>
             <div
@@ -69,21 +64,22 @@ export function Sidebar() {
                 gap: '0.75rem',
                 padding: '0.75rem 1rem',
                 borderRadius: '0.75rem',
-                backgroundColor: isActive ? '#4a6741' : 'transparent',
-                color: isActive ? 'white' : '#9ca3af',
-                fontWeight: 500,
+                backgroundColor: isActive ? '#fef2f2' : 'transparent',
+                color: isActive ? '#e4002b' : '#6b7280',
+                fontWeight: isActive ? 600 : 500,
                 transition: 'all 0.2s',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                borderLeft: isActive ? '3px solid #e4002b' : '3px solid transparent'
               }}
               onMouseEnter={(e) => {
                 if (!isActive) {
-                  e.currentTarget.style.color = 'white';
-                  e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.05)';
+                  e.currentTarget.style.color = '#1a1a1a';
+                  e.currentTarget.style.backgroundColor = '#f9fafb';
                 }
               }}
               onMouseLeave={(e) => {
                 if (!isActive) {
-                  e.currentTarget.style.color = '#9ca3af';
+                  e.currentTarget.style.color = '#6b7280';
                   e.currentTarget.style.backgroundColor = 'transparent';
                 }
               }}>
@@ -97,13 +93,13 @@ export function Sidebar() {
         </div>
       </nav>
 
-      <div style={{ padding: '1.5rem', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+      <div style={{ padding: '1.5rem', borderTop: '1px solid #e5e5e5' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
           <div style={{
             width: 40,
             height: 40,
             borderRadius: '50%',
-            backgroundColor: '#6b8f5e',
+            backgroundColor: '#e4002b',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -114,7 +110,7 @@ export function Sidebar() {
             J
           </div>
           <div>
-            <p style={{ fontWeight: 500, fontSize: '0.875rem', margin: 0 }}>Jakob</p>
+            <p style={{ fontWeight: 500, fontSize: '0.875rem', margin: 0, color: '#1a1a1a' }}>Jakob</p>
             <p style={{ fontSize: '0.75rem', color: '#9ca3af', margin: 0 }}>Pro Member</p>
           </div>
         </div>

@@ -1,3 +1,4 @@
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { MealPlanProvider } from './data/useMealPlan';
 import { Sidebar } from './components/Sidebar';
@@ -13,10 +14,10 @@ import { SavedPlans } from './pages/SavedPlans';
 export function App() {
   return (
     <MealPlanProvider>
-      <BrowserRouter basename="/Plan2plate">
-        <div style={{ display: 'flex', minHeight: '100vh', backgroundColor: '#faf8f5', color: '#1f2937' }}>
+      <BrowserRouter>
+        <div style={{ display: 'flex', minHeight: '100vh', backgroundColor: '#f5f5f5', color: '#1a1a1a' }}>
           <Sidebar />
-          <main className="main-content" style={{ flex: 1, marginLeft: 260, padding: '2.5rem', overflowY: 'auto', height: '100vh' }}>
+          <main style={{ flex: 1, marginLeft: 260, padding: '2.5rem', overflowY: 'auto', height: '100vh' }}>
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/planner" element={<MealPlanner />} />
