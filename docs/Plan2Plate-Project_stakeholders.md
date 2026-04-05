@@ -1,5 +1,3 @@
-**https://github.com/Stef1919/Plan2plate/tree/main/docs**
-
 **PROJECT STAKEHOLDERS**
 
 **1\. MERCATOR (Investor & Retail partner)**
