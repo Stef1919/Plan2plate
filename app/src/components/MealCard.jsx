@@ -1,29 +1,27 @@
 
+
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ClockIcon, RefreshCwIcon, PlusIcon, RefrigeratorIcon } from 'lucide-react';
 import { NutritionBadge } from './NutritionBadge';
 import { discounts } from '../data/discounts';
+import { getAdjustedNutrition, lifestyles } from '../data/lifestyles';
 
-export function MealCard({
-  meal,
-  onSwap,
-  onAdd,
-  showNutrition = false,
-  isActiveLifestyle = false
-}) {
+export function MealCard({ meal, onSwap, onAdd }) {
   const [isHovered, setIsHovered] = useState(false);
   const [swapHovered, setSwapHovered] = useState(false);
   const [addHovered, setAddHovered] = useState(false);
+  const { user } = useAuth();
 
   if (!meal) return null;
+
+  const lifestyleId = user?.lifestyle || 'normal';
+  const lifestyle = lifestyles.find((l) => l.id === lifestyleId) || lifestyles[0];
+  const adjusted = getAdjustedNutrition(meal, lifestyleId);
 
   const hasDiscount = meal.ingredients.some((ing) =>
   discounts.some((d) => d.ingredientName === ing.name)
   );
-
-  const displayCalories = isActiveLifestyle ? Math.round(meal.calories * 1.2) : meal.calories;
-  const displayProtein = isActiveLifestyle ? Math.round(meal.protein * 1.2) : meal.protein;
 
   return (
     <motion.div
@@ -148,13 +146,12 @@ export function MealCard({
         }
       </div>
 
-      {showNutrition &&
       <NutritionBadge
-        calories={displayCalories}
-        protein={displayProtein}
-        carbs={meal.carbs} />
-
-      }
+        calories={adjusted.calories}
+        protein={adjusted.protein}
+        carbs={adjusted.carbs}
+        lifestyle={lifestyle} />
+      
     </motion.div>);
 
 }

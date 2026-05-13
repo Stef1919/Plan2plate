@@ -2,15 +2,16 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { useMealPlan } from '../data/useMealPlan';
-import { ShoppingCartIcon, TrashIcon, CopyIcon, CheckIcon } from 'lucide-react';
+import { useMealPlan } from '../hooks/useMealPlan';
+import { ShoppingCartIcon, TrashIcon, CopyIcon, CheckIcon, Trash2Icon } from 'lucide-react';
 
 export function ShoppingList() {
   const navigate = useNavigate();
-  const { shoppingList, removeFromShoppingList, addAllToCart } = useMealPlan();
+  const { shoppingList, removeFromShoppingList, clearShoppingList, addAllToCart } = useMealPlan();
   const [copied, setCopied] = useState(false);
   const [exportHovered, setExportHovered] = useState(false);
   const [addHovered, setAddHovered] = useState(false);
+  const [clearHovered, setClearHovered] = useState(false);
   const [planHovered, setPlanHovered] = useState(false);
   const [hoveredItems, setHoveredItems] = useState({});
 
@@ -27,6 +28,9 @@ export function ShoppingList() {
         </div>
         {shoppingList.length > 0 &&
         <div style={{ display: 'flex', gap: '0.75rem' }}>
+            <button onClick={() => {if (window.confirm('Remove all items from your shopping list?')) clearShoppingList();}} onMouseEnter={() => setClearHovered(true)} onMouseLeave={() => setClearHovered(false)} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.625rem 1.25rem', backgroundColor: clearHovered ? '#fef2f2' : 'white', border: '1px solid #fecaca', color: '#b91c1c', borderRadius: '0.75rem', fontWeight: 500, cursor: 'pointer', transition: 'background-color 0.2s' }}>
+              <Trash2Icon style={{ width: 20, height: 20 }} /> Clear List
+            </button>
             <button onClick={handleExport} onMouseEnter={() => setExportHovered(true)} onMouseLeave={() => setExportHovered(false)} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.625rem 1.25rem', backgroundColor: exportHovered ? '#f9fafb' : 'white', border: '1px solid #e5e5e5', color: '#374151', borderRadius: '0.75rem', fontWeight: 500, cursor: 'pointer' }}>
               {copied ? <CheckIcon style={{ width: 20, height: 20, color: '#10b981' }} /> : <CopyIcon style={{ width: 20, height: 20 }} />}
               {copied ? 'Copied!' : 'Export List'}

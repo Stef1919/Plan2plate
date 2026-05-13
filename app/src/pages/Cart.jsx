@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useMealPlan } from '../data/useMealPlan';
+import { useMealPlan } from '../hooks/useMealPlan';
 import { TruckIcon, StoreIcon, CreditCardIcon, MapPinIcon, CheckCircleIcon } from 'lucide-react';
 
 export function Cart() {

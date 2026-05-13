@@ -1,18 +1,21 @@
 
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useMealPlan } from '../data/useMealPlan';
+import { useMealPlan } from '../hooks/useMealPlan';
 import { MealCard } from '../components/MealCard';
 import { meals } from '../data/meals';
-import { Settings2Icon, SaveIcon, XIcon, CalendarDaysIcon } from 'lucide-react';
+import { SaveIcon, XIcon, CalendarDaysIcon, ShoppingCartIcon } from 'lucide-react';
 
 export function MealPlanner() {
-  const { currentPlan, planDuration, generatePlan, replaceMeal, savePlan, userPreferences, togglePreference } = useMealPlan();
+  const navigate = useNavigate();
+  const { currentPlan, planDuration, generatePlan, replaceMeal, savePlan } = useMealPlan();
   const [swapModal, setSwapModal] = useState({ isOpen: false, dayIndex: null, mealType: null });
   const [isSaving, setIsSaving] = useState(false);
   const [genHovered, setGenHovered] = useState(false);
   const [saveHovered, setSaveHovered] = useState(false);
   const [closeHovered, setCloseHovered] = useState(false);
+  const [shopHovered, setShopHovered] = useState(false);
 
   const handleSwapClick = (dayIndex, mealType) => setSwapModal({ isOpen: true, dayIndex, mealType });
   const handleSelectSwap = (newMeal) => {replaceMeal(swapModal.dayIndex, swapModal.mealType, newMeal);setSwapModal({ isOpen: false, dayIndex: null, mealType: null });};
@@ -43,26 +46,16 @@ export function MealPlanner() {
         </div>
       </div>
 
-      <div style={{ backgroundColor: 'white', padding: '1rem', borderRadius: '1rem', boxShadow: '0 1px 2px rgb(0 0 0 / 0.05)', border: '1px solid #e5e5e5', display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '2rem' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#374151', fontWeight: 500 }}>
-            <Settings2Icon style={{ width: 20, height: 20, color: '#9ca3af' }} /> Preferences:
-          </div>
-          <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>
-            <input type="checkbox" checked={userPreferences.showNutrition} onChange={() => togglePreference('showNutrition')} style={{ width: 16, height: 16, accentColor: '#e4002b' }} />
-            <span style={{ fontSize: '0.875rem' }}>Show Nutrition</span>
-          </label>
-          <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>
-            <input type="checkbox" checked={userPreferences.activeLifestyle} onChange={() => togglePreference('activeLifestyle')} style={{ width: 16, height: 16, accentColor: '#e4002b' }} />
-            <span style={{ fontSize: '0.875rem' }}>Active Lifestyle</span>
-          </label>
-        </div>
-        {currentPlan &&
-        <button onClick={handleSave} onMouseEnter={() => setSaveHovered(true)} onMouseLeave={() => setSaveHovered(false)} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 1rem', backgroundColor: saveHovered ? '#e5e7eb' : '#f3f4f6', color: '#374151', borderRadius: '0.5rem', fontWeight: 500, border: 'none', cursor: 'pointer', transition: 'background-color 0.2s' }}>
+      {currentPlan &&
+      <div style={{ backgroundColor: 'white', padding: '1rem', borderRadius: '1rem', boxShadow: '0 1px 2px rgb(0 0 0 / 0.05)', border: '1px solid #e5e5e5', display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '0.75rem', marginBottom: '2rem' }}>
+          <button onClick={() => navigate('/shopping-list')} onMouseEnter={() => setShopHovered(true)} onMouseLeave={() => setShopHovered(false)} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 1rem', backgroundColor: shopHovered ? '#c50025' : '#e4002b', color: 'white', borderRadius: '0.5rem', fontWeight: 600, border: 'none', cursor: 'pointer', transition: 'background-color 0.2s' }}>
+            <ShoppingCartIcon style={{ width: 16, height: 16 }} /> Make Shopping List
+          </button>
+          <button onClick={handleSave} onMouseEnter={() => setSaveHovered(true)} onMouseLeave={() => setSaveHovered(false)} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 1rem', backgroundColor: saveHovered ? '#e5e7eb' : '#f3f4f6', color: '#374151', borderRadius: '0.5rem', fontWeight: 500, border: 'none', cursor: 'pointer', transition: 'background-color 0.2s' }}>
             <SaveIcon style={{ width: 16, height: 16 }} /> {isSaving ? 'Saved!' : 'Save Plan'}
           </button>
-        }
-      </div>
+        </div>
+      }
 
       {!currentPlan ?
       <div style={{ textAlign: 'center', padding: '8rem 0', backgroundColor: 'white', borderRadius: '1.5rem', border: '2px dashed #d1d5db' }}>
@@ -84,7 +77,7 @@ export function MealPlanner() {
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', paddingRight: '1rem', fontWeight: 700, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '0.05em', fontSize: '0.875rem' }}>{mealType}</div>
                 {currentPlan.days.map((day, i) =>
             <div key={`${i}-${mealType}`} style={{ height: '100%' }}>
-                    <MealCard meal={day[mealType]} onSwap={() => handleSwapClick(i, mealType)} showNutrition={userPreferences.showNutrition} isActiveLifestyle={userPreferences.activeLifestyle} />
+                    <MealCard meal={day[mealType]} onSwap={() => handleSwapClick(i, mealType)} />
                   </div>
             )}
               </div>
@@ -104,7 +97,7 @@ export function MealPlanner() {
                 </button>
               </div>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1rem' }}>
-                {swapOptions.map((meal) => <div key={meal.id} style={{ height: '100%' }}><MealCard meal={meal} onAdd={() => handleSelectSwap(meal)} showNutrition={userPreferences.showNutrition} /></div>)}
+                {swapOptions.map((meal) => <div key={meal.id} style={{ height: '100%' }}><MealCard meal={meal} onAdd={() => handleSelectSwap(meal)} /></div>)}
               </div>
             </motion.div>
           </div>

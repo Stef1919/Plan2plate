@@ -1,18 +1,21 @@
 
+
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useMealPlan } from '../data/useMealPlan';
-import { BookmarkIcon, CalendarIcon, RefreshCwIcon, Trash2Icon } from 'lucide-react';
+import { useMealPlan } from '../hooks/useMealPlan';
+import { BookmarkIcon, CalendarIcon, RefreshCwIcon, Trash2Icon, ShoppingCartIcon } from 'lucide-react';
 
 export function SavedPlans() {
   const navigate = useNavigate();
-  const { savedPlans, reusePlan, deleteSavedPlan } = useMealPlan();
+  const { savedPlans, reusePlan, deleteSavedPlan, generateShoppingList } = useMealPlan();
   const [btnHovered, setBtnHovered] = useState(false);
   const [reuseHovered, setReuseHovered] = useState({});
   const [deleteHovered, setDeleteHovered] = useState({});
+  const [shopHovered, setShopHovered] = useState({});
   const [expandedPlan, setExpandedPlan] = useState(null);
 
   const handleReuse = (plan) => {reusePlan(plan);navigate('/planner');};
+  const handleMakeList = (plan) => {generateShoppingList(plan);navigate('/shopping-list');};
   const toggleExpand = (planId) => setExpandedPlan((prev) => prev === planId ? null : planId);
 
   return (
@@ -52,7 +55,10 @@ export function SavedPlans() {
                     </div>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <button onClick={(e) => {e.stopPropagation();handleReuse(plan);}} onMouseEnter={() => setReuseHovered((p) => ({ ...p, [plan.id]: true }))} onMouseLeave={() => setReuseHovered((p) => ({ ...p, [plan.id]: false }))} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 1.25rem', backgroundColor: reuseHovered[plan.id] ? '#e4002b' : '#f5f5f5', color: reuseHovered[plan.id] ? 'white' : '#e4002b', border: '1px solid rgba(228, 0, 43, 0.2)', borderRadius: '0.5rem', fontWeight: 600, cursor: 'pointer', transition: 'all 0.2s', fontSize: '0.875rem' }}>
+                    <button onClick={(e) => {e.stopPropagation();handleMakeList(plan);}} onMouseEnter={() => setShopHovered((p) => ({ ...p, [plan.id]: true }))} onMouseLeave={() => setShopHovered((p) => ({ ...p, [plan.id]: false }))} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 1.25rem', backgroundColor: shopHovered[plan.id] ? '#c50025' : '#e4002b', color: 'white', border: 'none', borderRadius: '0.5rem', fontWeight: 600, cursor: 'pointer', transition: 'all 0.2s', fontSize: '0.875rem' }}>
+                      <ShoppingCartIcon style={{ width: 16, height: 16 }} /> Make Shopping List
+                    </button>
+                    <button onClick={(e) => {e.stopPropagation();handleReuse(plan);}} onMouseEnter={() => setReuseHovered((p) => ({ ...p, [plan.id]: true }))} onMouseLeave={() => setReuseHovered((p) => ({ ...p, [plan.id]: false }))} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 1.25rem', backgroundColor: reuseHovered[plan.id] ? '#fef2f2' : '#f5f5f5', color: '#e4002b', border: '1px solid rgba(228, 0, 43, 0.2)', borderRadius: '0.5rem', fontWeight: 600, cursor: 'pointer', transition: 'all 0.2s', fontSize: '0.875rem' }}>
                       <RefreshCwIcon style={{ width: 16, height: 16 }} /> Reuse
                     </button>
                     <button onClick={(e) => {e.stopPropagation();deleteSavedPlan(plan.id);}} onMouseEnter={() => setDeleteHovered((p) => ({ ...p, [plan.id]: true }))} onMouseLeave={() => setDeleteHovered((p) => ({ ...p, [plan.id]: false }))} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 1rem', backgroundColor: deleteHovered[plan.id] ? '#fef2f2' : 'transparent', color: deleteHovered[plan.id] ? '#b91c1c' : '#9ca3af', border: '1px solid transparent', borderRadius: '0.5rem', cursor: 'pointer', transition: 'all 0.2s', fontSize: '0.875rem' }}>

@@ -1,7 +1,7 @@
 
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { useMealPlan } from '../data/useMealPlan';
+import { useMealPlan } from '../hooks/useMealPlan';
 import { CalendarDaysIcon, SparklesIcon, TagIcon, ArrowRightIcon } from 'lucide-react';
 
 const containerVariants = {

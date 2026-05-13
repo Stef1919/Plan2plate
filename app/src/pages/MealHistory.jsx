@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useMealPlan } from '../data/useMealPlan';
+import { useMealPlan } from '../hooks/useMealPlan';
 import { HistoryIcon, CalendarIcon, RefreshCwIcon, Trash2Icon } from 'lucide-react';
 
 export function MealHistory() {

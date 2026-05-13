@@ -96,6 +96,8 @@ export function MealPlanProvider({ children }) {
 
   const clearCart = () => setCart([]);
 
+  const clearShoppingList = () => setShoppingList([]);
+
   // Save current plan to savedPlans
   const savePlan = () => {
     if (currentPlan) {
@@ -146,6 +148,8 @@ export function MealPlanProvider({ children }) {
       deleteSavedPlan,
       deleteFromHistory,
       removeFromShoppingList,
+      clearShoppingList,
+      generateShoppingList,
       addAllToCart,
       clearCart,
       reusePlan,
