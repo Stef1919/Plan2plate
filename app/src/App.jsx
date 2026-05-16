@@ -1,7 +1,11 @@
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './hooks/useAuth';
 import { MealPlanProvider } from './hooks/useMealPlan';
+import { ProtectedRoute } from './components/ProtectedRoute';
 import { Topbar } from './components/Topbar';
+import { Login } from './pages/Login';
+import { Register } from './pages/Register';
 import { Dashboard } from './pages/Dashboard';
 import { MealPlanner } from './pages/MealPlanner';
 import { ShoppingList } from './pages/ShoppingList';
@@ -13,9 +17,14 @@ import { SavedPlans } from './pages/SavedPlans';
 
 export function App() {
   return (
-
+    <AuthProvider>
       <MealPlanProvider>
         <BrowserRouter>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/*" element={
+            <ProtectedRoute>
                 <div style={{ minHeight: '100vh', backgroundColor: '#f5f5f5', color: '#1a1a1a' }}>
                   <Topbar />
                   <main style={{ paddingTop: 'calc(68px + 2rem)', paddingLeft: '2.5rem', paddingRight: '2.5rem', paddingBottom: '2.5rem' }}>
@@ -31,8 +40,11 @@ export function App() {
                     </Routes>
                   </main>
                 </div>
+              </ProtectedRoute>
+            } />
+          </Routes>
         </BrowserRouter>
       </MealPlanProvider>
-  );
+    </AuthProvider>);
 
 }

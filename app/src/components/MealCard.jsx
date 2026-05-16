@@ -1,10 +1,9 @@
-
-
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ClockIcon, RefreshCwIcon, PlusIcon, RefrigeratorIcon } from 'lucide-react';
 import { NutritionBadge } from './NutritionBadge';
 import { discounts } from '../data/discounts';
+import { useAuth } from '../hooks/useAuth';
 import { getAdjustedNutrition, lifestyles } from '../data/lifestyles';
 
 export function MealCard({ meal, onSwap, onAdd }) {

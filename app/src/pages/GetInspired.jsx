@@ -10,8 +10,6 @@ const filters = ['All', 'Easy to Make', 'Quick (< 30m)', 'High Protein', 'Budget
 export function GetInspired() {
   const [activeFilter, setActiveFilter] = useState('All');
   const [randomSeed, setRandomSeed] = useState(0);
-  const [btnHovered, setBtnHovered] = useState(false);
-  const [filterHovered, setFilterHovered] = useState({});
 
   let filteredMeals = meals;
   if (activeFilter === 'Easy to Make') filteredMeals = meals.filter((m) => m.difficulty === 'easy');
@@ -27,7 +25,7 @@ export function GetInspired() {
           <SparklesIcon style={{ width: 64, height: 64, color: '#e4002b', margin: '0 auto 1.5rem' }} />
           <h1 style={{ fontSize: '3rem', fontWeight: 700, color: '#ffffff', marginBottom: '1rem' }}>What are you craving?</h1>
           <p style={{ fontSize: '1.25rem', color: '#d1d5db', marginBottom: '2rem', maxWidth: 672, margin: '0 auto 2rem' }}>Discover new recipes tailored to your taste. Add them directly to your weekly plan.</p>
-          <button onClick={() => setRandomSeed((prev) => prev + 1)} onMouseEnter={() => setBtnHovered(true)} onMouseLeave={() => setBtnHovered(false)} style={{ backgroundColor: btnHovered ? '#c50025' : '#e4002b', color: 'white', padding: '1rem 2rem', borderRadius: '0.75rem', fontWeight: 700, fontSize: '1.125rem', border: 'none', cursor: 'pointer', boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)' }}>Surprise Me!</button>
+          <button onClick={() => setRandomSeed((prev) => prev + 1)} style={{ backgroundColor: '#e4002b', color: 'white', padding: '1rem 2rem', borderRadius: '0.75rem', fontWeight: 700, fontSize: '1.125rem', border: 'none', cursor: 'pointer', boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)' }}>Surprise Me!</button>
         </motion.div>
       </div>
 
@@ -36,7 +34,7 @@ export function GetInspired() {
           <FilterIcon style={{ width: 20, height: 20 }} /> Filters:
         </div>
         {filters.map((filter) =>
-        <button key={filter} onClick={() => setActiveFilter(filter)} onMouseEnter={() => setFilterHovered((p) => ({ ...p, [filter]: true }))} onMouseLeave={() => setFilterHovered((p) => ({ ...p, [filter]: false }))} style={{ padding: '0.5rem 1.25rem', borderRadius: '9999px', fontWeight: 500, whiteSpace: 'nowrap', border: activeFilter === filter ? '1px solid #e4002b' : '1px solid #e5e5e5', backgroundColor: activeFilter === filter ? '#e4002b' : filterHovered[filter] ? '#f9fafb' : 'white', color: activeFilter === filter ? 'white' : '#4b5563', cursor: 'pointer' }}>
+        <button key={filter} onClick={() => setActiveFilter(filter)} style={{ padding: '0.5rem 1.25rem', borderRadius: '9999px', fontWeight: 500, whiteSpace: 'nowrap', border: activeFilter === filter ? '1px solid #e4002b' : '1px solid #e5e5e5', backgroundColor: activeFilter === filter ? '#e4002b' : 'white', color: activeFilter === filter ? 'white' : '#4b5563', cursor: 'pointer' }}>
             {filter}
           </button>
         )}

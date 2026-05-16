@@ -7,7 +7,7 @@ import { TruckIcon, StoreIcon, CreditCardIcon, MapPinIcon, CheckCircleIcon } fro
 
 export function Cart() {
   const navigate = useNavigate();
-  const { cart, clearCart } = useMealPlan();
+  const { cart, clearCart, removeFromCart } = useMealPlan();
   const [deliveryMethod, setDeliveryMethod] = useState('delivery');
   const [paymentMethod, setPaymentMethod] = useState('card');
   const [isOrderPlaced, setIsOrderPlaced] = useState(false);
@@ -87,10 +87,37 @@ export function Cart() {
           </div>
           <div>
             <div style={{ backgroundColor: 'white', borderRadius: '1rem', padding: '1.5rem', boxShadow: '0 1px 2px rgb(0 0 0 / 0.05)', border: '1px solid #e5e5e5', position: 'sticky', top: '2rem' }}>
-              <h2 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#1a1a1a', marginBottom: '1.5rem' }}>Order Summary</h2>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '1.5rem', maxHeight: 256, overflowY: 'auto', paddingRight: '0.5rem' }}>
-                {cart.map((item) => <div key={item.id} style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.875rem' }}><span style={{ color: '#4b5563' }}>{item.amount} {item.unit} {item.name}</span><span style={{ fontWeight: 500, color: '#1a1a1a' }}>€2.50</span></div>)}
-              </div>
+              
+              <div style={{
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  marginBottom: '1.5rem'
+}}>
+  <h2 style={{
+    fontSize: '1.25rem',
+    fontWeight: 700,
+    color: '#1a1a1a',
+    margin: 0
+  }}>
+    Order Summary
+  </h2>
+
+  <button
+    onClick={clearCart}
+    style={{
+      backgroundColor: '#ef4444',
+      color: 'white',
+      border: 'none',
+      padding: '0.5rem 0.75rem',
+      borderRadius: '0.5rem',
+      cursor: 'pointer',
+      fontWeight: 600
+    }}
+  >
+    Clear Cart
+  </button>
+</div>
               <div style={{ borderTop: '1px solid #f3f4f6', paddingTop: '1rem', display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '1.5rem' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', color: '#4b5563' }}><span>Subtotal ({cart.length} items)</span><span>€{subtotal.toFixed(2)}</span></div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', color: '#4b5563' }}><span>Delivery Fee</span><span>{deliveryFee === 0 ? 'Free' : `€${deliveryFee.toFixed(2)}`}</span></div>

@@ -30,8 +30,7 @@ export function Dashboard() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         style={{ marginBottom: '2.5rem' }}>
-        
-        <h1 style={{ fontSize: '2.25rem', fontWeight: 700, color: '#1a1a1a', marginBottom: '0.5rem' }}>Good morning, Jakob! 🍳</h1>
+    
         <p style={{ fontSize: '1.125rem', color: '#4b5563' }}>It's {todayStr}. Ready to plan your week?</p>
       </motion.div>
 
