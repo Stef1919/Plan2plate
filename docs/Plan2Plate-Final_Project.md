@@ -1,55 +1,12 @@
-
-
-## 1
-
-
-
-
 MiT Project 2026
-https://github.com/Stef1919/Plan2plate/tree/main/docs
 Plan2Plate
 “Your personalized meal planning companion. Plan smarter, eat better.”
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Nina Šinigoj
 ## Stefan Novaković
 ## Kenan Zukić
 
-## 2
-
-## Contents
-Project Charter ............................................................................................................................................ 3
-Personas and Problem Scenarios ............................................................................................................... 6
-Jakob the Math Teacher ............................................................................................................................. 6
-Tina the Psychology Student ...................................................................................................................... 7
-Marina the Health-Conscious Accountant ................................................................................................ 8
-User Stories ................................................................................................................................................... 9
-Hypothesis Testing .....................................................................................................................................11
-Usability Testing .........................................................................................................................................13
-SCRUM ..........................................................................................................................................................14
-Project Stakeholders .................................................................................................................................16
-Positive and Negative Team Patterns .....................................................................................................17
-Plan2Plate Application Design .................................................................................................................18
-Conclusion ...................................................................................................................................................22
-
-
-
-## 3
-
 ## Project Charter
-- PROJECT CODE AND NAME: PLAN2PLATE - Meal planning and online grocery store
+## 1. PROJECT CODE AND NAME: PLAN2PLATE - Meal planning and online grocery store
 
 ## 2. PROJECT CLIENT:
 Client: Mercator d.d.
@@ -83,14 +40,11 @@ recommendation features.
 ▪ To deliver a stable, tested and documented software solution
 ▪ Increase the likelihood of a recurring customer
 
-
-## 4
-
 ## 6. POSSIBLE REQUIREMENTS OF THE CONTRACTING AUTHORITY (OPTIONS):
 ## 6.1 DESCRIPTION OF THE METHODOLOGY
 The project will be developed in different phases with clearly defined stages:
 ▪ Planning and analysis
-## ▪ Development
+▪ Development
 ▪ Integration and testing
 ▪ Deployment and evaluation
 
@@ -123,10 +77,6 @@ user preferences – we will allow them to grade meals, between 1 and 5.
 Weekly reporting on progress. Final project report will describe implementation, results and
 limitations.
 
-
-## 5
-
-
 ## 7. PROJECT LIMITATIONS (OPTIONS):
 ## 7.1 ROUGH SCHEDULE
 Project start: End of February 2026
@@ -157,10 +107,6 @@ Other companies and local farmers that want to promote their produce or products
 - Data quality (6)
 - User privacy (8)
 - Recommendation quality (7)
-
-
-
-## 6
 
 ## 11. WAYS OF MOTIVATION:
 Innovative way of grocery shopping on eCommerce platform. Easy way to track nutrition and
@@ -200,8 +146,6 @@ workdays, he prefers planning his week in advance, including his meals. However,
 shopping has become a challenge. He no longer has time to visit multiple stores to compare
 prices and search for the best deals, as he used to do.
 s)w/ this persona
-
-## 7
 
 Jakob wants a simpler solution: one reliable store where he can find affordable products
 consistently, without wasting time. Ideally, he would like a digital platform that allows him to
@@ -255,10 +199,6 @@ some days are filled with lectures, while others are dedicated
 to studying, group projects, or exam preparation.
 One of Tina’s biggest everyday struggles is deciding what to
 cook. She often opens the fridge without a clear idea, hoping inspiration will appear. Instead,
-
-
-## 8
-
 she feels overwhelmed by random ingredients that don’t easily combine into a proper meal.
 She spends a lot of time scrolling through social media recipes, but the abundance of options
 makes the decision even harder. By the time she chooses something, she’s already tired or too
@@ -279,22 +219,11 @@ Does Sometimes skips meals or eats snacks instead of proper meals. Often decides
 to cook the same day. Frequently buys ingredients without a clear plan.
 
 ## Problem Scenarios Current Alternatives Your Value Proposition
-Tina struggles to
-decide what to
-cook daily.
-Scrolls social media for
-recipes and eats
-random meals.
-Quick “What should I cook today?” feature with
-3 simple personalized suggestions.
-She feels
-overwhelmed by
-too many recipe
-choices.
-## Uses
-TikTok/Instagram;
-gives up.
+Tina struggles to decide what to cook daily. Scrolls social media for recipes and eats random meals.
+Quick “What should I cook today?” feature with 3 simple personalized suggestions.
+She feels overwhelmed by too many recipe choices. Uses TikTok/Instagram; gives up.
 Recommended fast and easy recipes.
+
 Marina the Health-Conscious Accountant
 Screening Question: Do you plan your meals at least once per week? Do you actively try to eat
 healthy or balanced meals?
@@ -307,9 +236,6 @@ occasionally attends group fitness classes. Maintaining a
 healthy lifestyle is important to her, and she tries to be
 mindful about exercising and nutrition.
 Marina loves to meal plan to meet her daily protein intake
-
-
-## 9
 
 goals. She prefers knowing in advance what she will eat during the week, especially because
 she wants balanced meals that support her workouts and overall wellbeing. However, despite
@@ -330,29 +256,13 @@ Does Meal plans once per week. Sometimes tracks calories or macros. Chooses prod
 based on quality and nutritional value, not just price.
 
 ## Problem Scenarios Current Alternatives Your Value Proposition
-Meal planning takes
-too much time.
-Searches recipes
-manually - uses
-spreadsheets.
-Smart weekly healthy meal plan generator
-tailored to active lifestyle.
-Grocery shopping
-doesn’t match
-planned meals
-efficiently.
-Writes manual lists;
-adjusts in-store.
-Auto-generated shopping cart synced with
-Mercator inventory.
-Healthy recipes
-often require too
-many ingredients.
-Simplifies recipes
-herself.
+Meal planning takes too much time. Searches recipes manually - uses
+spreadsheets. Smart weekly healthy meal plan generator tailored to active lifestyle.
+Grocery shopping doesn’t match planned meals efficiently. Writes manual lists;
+adjusts in-store. Auto-generated shopping cart synced with Mercator inventory.
+Healthy recipes often require too many ingredients. Simplifies recipes herself.
 
-Curated balanced recipes with optimized
-ingredient overlap.
+Curated balanced recipes with optimized ingredient overlap.
 
 ## User Stories
 Jakob the Math Teacher
@@ -363,9 +273,6 @@ fatigue.
 - System generates 7 days of meals – breakfast, lunch and dinner.
 - User can replace any single meal without regenerating the whole week.
 - User then saves the weekly plan.
-
-## 10
-
 
 Story 2: Since I am extremely busy and unsure how much work I’ll have on a daily basis, I
 often forget to buy some key ingredients for my meals. I’d like a shopping list so I don’t forget
@@ -408,8 +315,6 @@ Marina the Health-Conscious Accountant
 Story 1: As a physically active person, I want nutritionally balanced meal plans that support
 my calorie goals.
 
-## 11
-
 - User can select “Active Lifestyle” preference.
 - System automatically calculates calories per meal.
 - Protein and carbs are displayed for every meal.
@@ -451,9 +356,6 @@ recipes.
 - What do you find difficult or annoying about planning meals?
 - How often do you buy groceries?
 - How much time do you usually spend grocery shopping?
-
-## 12
-
 - Do you make shopping lists before going to the store?
 - Have you ever ordered groceries online?
 - What do you like and dislike about online grocery shopping?
@@ -494,9 +396,6 @@ Sven (Machine Operator)
 The interviews confirmed the following hypotheses:
 - Users struggle with deciding what to cook.
 - Users want faster and simpler meal planning/shopping.
-
-## 13
-
 - Automatically generated shopping lists would reduce forgotten ingredients and extra
 store visits.
 - Busy users value convenience features such as online ordering, delivery, and pickup.
@@ -509,6 +408,7 @@ recipes.
 - Flexible meal planning durations better fit different lifestyles and planning habits.
 The interview did not confirm the following hypothesis:
 - Users want to reuse old meal plans and recipes frequently.
+
 ## Usability Testing
 ## 1. TESTING PLAN
 The usability testing aims to evaluate the effectiveness and usability of a meal-planning
@@ -521,8 +421,8 @@ can:
 The test will be conducted on at least three participants, each representative of a key
 persona. Participants will be asked to complete realistic tasks while using the thinking aloud
 method.
-## 2. RESEARCH DESIGN
 
+## 2. RESEARCH DESIGN
 ## Section  Duration
 Introduction  3-5 min
 Interview  5 min
@@ -593,9 +493,6 @@ consider adding it in the future.
 ## 1. SPRINT 0: PROJECT PLANNING AND PREPARATION
 The goal of this project is to develop a meal planning and grocery shopping web application.
 The website will have user accounts, to help us build recommendations. The application allows
-
-## 15
-
 users to browse for meals and ingredients, add them to a cart, create meal plans, and view
 meal history.
 ## 1.1 Tools
@@ -611,7 +508,6 @@ The first prototype of the application has:
 - Meal planning by days
 - Shopping cart for selected meals
 - Meal history tracking
-## •
 ## 2. SPRINT 1: PROTOTYPE IMPLEMENTATION AND REDESIGN
 Sprint 1 focuses on implementing the first functional prototype of the application and
 improving the design based on user testing results.
@@ -637,9 +533,6 @@ be used to improve meal recommendations and planning.
 ▪ Implement user registration and login functionality.
 ▪ Create user profiles where users can store personal preferences.
 ▪ Implement lifestyle role selection for users.
-
-## 16
-
 ▪ Store user information and preferences in the backend database.
 ▪ Connect lifestyle roles with the meal recommendation system.
 ▪ Allow users to update their lifestyle role in profile settings.
@@ -673,9 +566,6 @@ Expectations & interests:
 - Fast and simple grocery shopping
 Conflicts: May prefer to stick to traditional shopping
 Benefits: Discover new way of shopping
-
-## 17
-
 Team response: Onboarding needs to be simple and platform must show clear value over in
 store shopping.
 
@@ -710,45 +600,14 @@ collaboration and learning.
 ## 3. HOW WE ADRESSED THE PATTERNS IN OUR PROJECT
 - We scheduled short weekly check-ins where we could discuss our project progress and
 issues and redistribute the tasks if one member becomes overloaded.
-
-## 18
-
 - We clearly defined responsibilities from the beginning and use shared tools for
 communication.
 - We divided tasks clearly, but we should have tracked progress more regularly and
 talked directly with members who fell behind.
 - We broke the project into smaller tasks and mostly followed the deadlines through.
 - We shared the resources and tutorials needed to complete tasks.
-Plan2Plate Application Design
+## Plan2Plate Application Design
 ## 1. LOG-IN AND SIGN-UP PAGE
-
-
-
-
-
-
-## 19
-
-## 2. DASHBOARD
-
-## 3. MEAL PLANNER
-
-## 20
-
-## 4. GET INSPIRED
-
-## 5. MEAL HISTORY
-
-## 21
-
-## 6. DEALS
-
-## 7. SHOPPING CART
-
-
-## 22
-
-## 8. SHOPPING LIST
 
 ## Conclusion
 In conclusion, this project helped us develop a meal planning and grocery shopping solution
