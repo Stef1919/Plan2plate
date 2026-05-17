@@ -606,8 +606,6 @@ communication.
 talked directly with members who fell behind.
 - We broke the project into smaller tasks and mostly followed the deadlines through.
 - We shared the resources and tutorials needed to complete tasks.
-## Plan2Plate Application Design
-## 1. LOG-IN AND SIGN-UP PAGE
 
 ## Conclusion
 In conclusion, this project helped us develop a meal planning and grocery shopping solution
